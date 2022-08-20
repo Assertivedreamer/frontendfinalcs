@@ -19,6 +19,18 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+import {MatInputModule} from '@angular/material/input';
+
+import {MatSelectModule} from '@angular/material/select';
+
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
+import {MatRadioModule} from '@angular/material/radio';
+
+
 
 
 @NgModule({
@@ -42,7 +54,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatNativeDateModule,
     MatSliderModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatRadioModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
