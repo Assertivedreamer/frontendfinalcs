@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../Service/api.service";
+import {MatTableDataSource} from "@angular/material/table";
+
+
 
 @Component({
   selector: 'app-table3',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Table3Component implements OnInit {
 
-  constructor() { }
+  dataSource!: MatTableDataSource<any>;
+  studentData: any;
+  constructor(private api :ApiService ){     }
 
   ngOnInit(): void {
-  }
+    this.api.getcon().subscribe((res)=>{
+      this.studentData=res;
+      console.log(this.studentData);
+    });
 
+
+
+  }
 }

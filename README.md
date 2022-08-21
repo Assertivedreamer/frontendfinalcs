@@ -1,3 +1,16 @@
+
+
+
+## FRONTEND OF COUNTRIES STAT
+
+
+
+
+1.Need to install NODE
+2.Need to install ANGULAR-CLI
+3.Need to run npm install
+4.Need to run ng s
+
 # Chart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.

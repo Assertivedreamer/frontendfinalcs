@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart, ChartOptions  } from "chart.js";
+import {Component, OnInit} from '@angular/core';
+import {Chart, ChartOptions} from "chart.js";
+import {ApiService} from "../Service/api.service";
 
 @Component({
   selector: 'app-chart2',
@@ -8,63 +9,59 @@ import { Chart, ChartOptions  } from "chart.js";
 })
 export class Chart2Component implements OnInit {
 
-  constructor() { }
+  barData: any;
+  barDatavalues = [];
+  barDatacountries: any;
 
-  public chart2?: Chart;
+  constructor(private api: ApiService) {
+  }
+
+  public chart?: Chart;
 
   ngOnInit() {
-    this.chart2 = new Chart("canvas", {
+
+    this.getbar1();
+
+  }
+
+
+  getbar1() {
+
+    this.api.getbar1().subscribe((res) => {
+      this.barData = res;
+      this.barDatavalues = this.barData.values;
+      this.barDatacountries = this.barData.countries;
+
+      console.log(this.barDatacountries);
+      console.log(this.barDatavalues);
+      this.getstat();
+    });
+
+  }
+
+  getstat() {
+    this.chart = new Chart("canvas", {
       type: "bar",
       data: {
-        labels: ["Contienent1", "Contienent1"],
+        labels: this.barDatacountries,
         datasets: [
           {
-            label: "# of Votes",
-            data: [21,19],
+            label: "continents",
+            data: this.barDatavalues,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
               "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 0, 0, 0.2)",
-              "rgba(0, 255, 0, 0.2)",
-              "rgba(0, 0, 255, 0.2)",
-              "rgba(255, 255, 0, 0.2)",
-              "rgba(255, 0, 255, 0.2)"
-
-
             ],
-            borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 0, 0, 0.2)",
-              "rgba(0, 255, 0, 0.2)",
-              "rgba(0, 0, 255, 0.2)",
-              "rgba(255, 255, 0, 0.2)",
-              "rgba(255, 0, 255, 0.2)"
 
-
-            ],
             borderWidth: 1
           }
         ]
       },
-      options: {
-        // scales: {
-        //   yAxes: [
-        //     {
-        //       ticks: {
-        //         beginAtZero: true
-        //       }
-        //     }
-        //   ]
-        // }
-      }
+
     });
+
   }
+
 
 }

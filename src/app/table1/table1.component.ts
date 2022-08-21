@@ -1,11 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {AfterViewInit, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-
-
+import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../Service/api.service";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-table1',
@@ -15,27 +10,19 @@ import {MatTableDataSource} from '@angular/material/table';
 
 
 export class Table1Component implements OnInit {
-  
-  ngOnInit(): void {
-  }
-
-  displayedColumns: string[] = ['id', 'productName', 'category', 'freshness','date','productPrice'];
-
+  displayedColumns: string[] = [  'state-province'];
   dataSource!: MatTableDataSource<any>;
+   studentData: any;
+  constructor(private api :ApiService ){     }
 
-  @ViewChild(MatPaginator) paginator !: MatPaginator;
-  @ViewChild(MatSort) sort !: MatSort;
- 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  ngOnInit(): void {
+    this.api.getStudent().subscribe((res)=>{
+      this.studentData=res;
+      console.log(this.studentData);
+    });
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+
+
   }
-
-
-
 }
+

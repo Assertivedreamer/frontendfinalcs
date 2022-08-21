@@ -8,13 +8,13 @@ import { Table2Component } from './table2/table2.component';
 import { Table3Component } from './table3/table3.component';
 
 const routes: Routes = [
-  { path: 'chart1', component: Chart1Component },
-  { path: 'chart2', component: Chart2Component },
-  { path:'chart3', component:Chart3Component },
-  { path:'table1', component:Table1Component },
-  { path:'table2', component:Table2Component },
-  { path:'table3', component:Table3Component },
-
+  { path: 'unversitystats.com/universities/top/10', component: Chart1Component },
+  { path: 'unversitystats.com/universities/top/2', component: Chart2Component },
+  { path:'unversitystats.com/universities/continents', component:Chart3Component },
+  { path:'universitiesinIndia', component:Table1Component },
+  { path:'universitiesinEurope', component:Table2Component },
+  { path:'universitiesinAllcountries', component:Table3Component },
+  { path: '**', component: Chart1Component}
 ];
 
 @NgModule({

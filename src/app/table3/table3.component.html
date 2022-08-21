@@ -1,1 +1,31 @@
-<p>table3 works!</p>
+
+
+<h4 style="text-align:center"> 3.Country,Continent,No of universities in ALL COUNTRIES.
+
+  <br/><br/>
+
+</h4>
+<div class="card shadow-all p-0 mt-4 bg-white" >
+  <div class="table-content p-2">
+    <table class="table-bordered table">
+      <thead>
+      <tr class="text-center table-background">
+        <th>COUNTRY</th>
+        <th>CONTINENT</th>
+        <th>NUMBER OF UNIVERSITIES</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="text-center" *ngFor="let data of studentData;">
+        <td>{{data.country|uppercase}}</td>
+        <td>{{data.universityName|uppercase}}</td>
+        <td>{{data.countryCode}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- <span class="text-center">
+    <pagination-controls id="listing-pagination">
+    </pagination-controls>
+    </span> -->
+  </div>
+</div>

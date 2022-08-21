@@ -29,6 +29,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 import {MatRadioModule} from '@angular/material/radio';
+import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
 
 
 
@@ -41,7 +42,9 @@ import {MatRadioModule} from '@angular/material/radio';
     Chart3Component,
     Table1Component,
     Table2Component,
-    Table3Component
+    Table3Component,
+    MyPieChartComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -65,4 +68,5 @@ import {MatRadioModule} from '@angular/material/radio';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
