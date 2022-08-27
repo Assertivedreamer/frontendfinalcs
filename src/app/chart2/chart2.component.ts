@@ -20,14 +20,14 @@ export class Chart2Component implements OnInit {
 
   ngOnInit() {
 
-    this.getbar1();
+    this.getbar2();
 
   }
 
 
-  getbar1() {
+  getbar2() {
 
-    this.api.getbar1().subscribe((res) => {
+    this.api.getbar2().subscribe((res) => {
       this.barData = res;
       this.barDatavalues = this.barData.values;
       this.barDatacountries = this.barData.countries;
@@ -41,7 +41,7 @@ export class Chart2Component implements OnInit {
 
   getstat() {
     this.chart = new Chart("canvas", {
-      type: "bar",
+      type: "pie",
       data: {
         labels: this.barDatacountries,
         datasets: [
